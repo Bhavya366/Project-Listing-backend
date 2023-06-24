@@ -256,6 +256,7 @@ app.put('/upvote', async (req, res) => {
         })
     }
 })
+// Route - to update the product-project
 app.put('/update-product',isAuthenticated,async (req, res) => {
     try {
 
@@ -269,6 +270,8 @@ app.put('/update-product',isAuthenticated,async (req, res) => {
             product.category = category || product.category;
             product.linkofproduct = linkofproduct || product.linkofproduct;
             product.adddescription = adddescription || product.adddescription;
+            product.comments = product.comments;
+            product.upvote = product.upvote;
             const updatedproduct = await product.save();
             return res.status(200).json({
             // message: 'product updated successfully',
